@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Task Manager</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+    <script src="{{ url_for('static',filename='script.js')}}" defer></script>
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <span class="logo">ST</span>
+            <div>
+                <h1>Student Task Manager</h1>
+                <p>Plan your day. Achieve your goals.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <h2>My Dashboard</h2>
+            <p>Organize your assignments and stay on track.</p>
+        </section>
+        <section class="stats">
+            <div class="stat-card">
+                <span>Total Tasks</span>
+                <h3 id="totalTasks">0</h3>
+            </div>
+
+            <div class="stat-card">
+                <span>Pending</span>
+                <h3 id="pendingTasks">0</h3>
+            </div>
+
+            <div class="stat-card">
+                <span>Completed</span>
+                <h3 id="completedTasks">0</h3>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add a New Task</h2>
+
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle">Task name</label>
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="Example: Complete Python assignment"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskSubject">Subject</label>
+                        <input
+                            type="text"
+                            id="taskSubject"
+                            placeholder="Example: Python"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taskDate">Deadline</label>
+                        <input type="date" id="taskDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskPriority">Priority</label>
+                    <select id="taskPriority">
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="primary-btn">
+                    + Add Task
+                </button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <div class="task-heading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>Track your assignments below.</p>
+                </div>
+    
+
+                <select id="taskFilter" aria-label="Filter tasks">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="progress-card">
+            <h3>Study Progress</h3>
+
+            <p id="progress-text">0% completed</p>
+
+            <div class="progress-track">
+                <div id="progress-bar" class="progress-fill"></div>
+            </div>
+
+    <p id="progress-count">0 of 0 tasks</p>
+</div>
+            <div id="taskList" class="task-list">
+                <p class="empty-message">
+                    No tasks yet. Add your first task above!
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Student Task Manager | Stay focused and keep learning.</p>
+    </footer>
+
+</body>
+</html>
